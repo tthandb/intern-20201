@@ -5,12 +5,12 @@ import java.util.*;
 
 public class B2 {
     public static void main(String[] args) throws FileNotFoundException {
-        File input = new File("week1/java.B2/input.txt");
-        File output = new File("week1/java.B2/output.txt");
+        File input = new File("src/javacore/B2/input.txt");
+        File output = new File("src/javacore/B2/output.txt");
         ArrayList<String> wordList = new ArrayList<String>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(input));
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(output));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/javacore/B2/output.txt"));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 wordList.addAll(Arrays.asList(line.split("\\W+")));
@@ -25,9 +25,10 @@ public class B2 {
             }
             bufferedReader.close();
             for (Map.Entry<String, Integer> result : freqMap.entrySet()) {
-                bufferedWriter.write(result.getKey() + " " + result.getValue());
+                bufferedWriter.write(result.getKey() + " " + result.getValue() + "\n");
                 System.out.println(result.getKey() + " " + result.getValue());
             }
+            bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
