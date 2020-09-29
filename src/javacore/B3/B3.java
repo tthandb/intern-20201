@@ -66,8 +66,6 @@ public class B3 {
             CountWord runnable = new CountWord(i);
             executorService.execute(runnable);
         }
-
-
         executorService.shutdown();
     }
 }
