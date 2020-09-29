@@ -1,0 +1,36 @@
+Simulation is a common practice for the
+performance evaluation and capacity planning of
+Web-based systems. Indeed, the complexity of
+current Web architectures often makes analytical
+solutions of the related mathematical models
+infeasible. In this paper we present CWebSim: a
+simulation framework conceived for cluster-based
+Web services. These architectures are frequently
+used in practice: they are built on pools of server
+nodes, also known as Web farms/clusters, that are
+interconnected by a LAN with the goal of sharing
+the load of incoming requests. Many alternatives
+exist and CWebSim can be used to evaluate most of
+them, especially those acting at the higher levels,
+that is, application protocols, server-level caching,
+file systems. Nevertheless, CWebSim remains a
+detailed simulation model of a Web cluster,
+encompassing the main issues about the hardware,
+the operating system and the application layers, such
+as internal network and disk transfers, overheads due
+to request dispatching and processing. Special
+attention has been posed also to the workload model
+that reproduces a Web environment: in the case of
+the synthetic workload, realistic distributions for
+document sizes and requests are adopted, whereas
+the trace-based method has the appreciable feature
+of preserving the time dependencies. The CWebSim
+simulation framework can be customized into
+several Web service architectures, thanks to its
+modular design which allows the combinations of a
+broad variety of technical features, such as the
+adoption of different request dispatching policies
+and internal network hardware. By redefining the
+node functions and interconnections, complex
+proxy-caching systems or multi-tier architectures for
+e-commerce services can be easily simulated.
