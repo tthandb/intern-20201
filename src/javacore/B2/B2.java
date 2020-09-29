@@ -1,12 +1,12 @@
-package B2;
+package javacore.B2;
 
 import java.io.*;
 import java.util.*;
 
 public class B2 {
     public static void main(String[] args) throws FileNotFoundException {
-        File input = new File("week1/B2/input.txt");
-        File output = new File("week1/B2/output.txt");
+        File input = new File("week1/java.B2/input.txt");
+        File output = new File("week1/java.B2/output.txt");
         ArrayList<String> wordList = new ArrayList<String>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(input));
