@@ -1,4 +1,4 @@
-package javacore;
+package javacore.B1;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
