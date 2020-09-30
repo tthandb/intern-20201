@@ -18,7 +18,7 @@ public class Test {
 //        dotList.forEach((e) -> {
 //            System.out.println(e.getX() + " " + e.getY());
 //        });
-        int newY = ThreadLocalRandom.current().nextInt((int) Math.ceil(0), (int) Math.floor(0));
+        int newY = ThreadLocalRandom.current().nextInt(0,0);
         System.out.println(newY);
     }
 }
