@@ -23,8 +23,8 @@ public class B3 {
         @Override
         public void run() {
             System.out.println("-----------------------------------------");
-            System.out.println(this.id + " run");
-            System.out.println("-----------------------------------------");
+//            System.out.println(this.id + " run");
+//            System.out.println("-----------------------------------------");
             File input = new File("src/javacore/B3/input/" + this.id + ".txt");
             ArrayList<String> wordList = new ArrayList<String>();
             try {
@@ -39,24 +39,22 @@ public class B3 {
                 HashMap<String, Integer> freqMap = new HashMap<String, Integer>();
                 for (String key : wordList) {
                     int freq = freqMap.getOrDefault(key, 0);
-                    freqMap.put(key, ++freq);
-                    globalFreq.put(key, ++freq);
                 }
+                freqMap.forEach((key, value) -> {
+                    globalFreq.put(key, globalFreq.get(key) + value);
+                });
                 bufferedReader.close();
 //                for (Map.Entry<String, Integer> result : freqMap.entrySet()) {
 //                    System.out.println(result.getKey() + " " + result.getValue());
 //                }
-                System.out.println("*****************************8");
-                for (Map.Entry<String, Integer> result : globalFreq.entrySet()) {
-                    System.out.println(result.getKey() + " " + result.getValue());
-                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-            System.out.println("-----------------------------------------");
-            System.out.println(this.id + " end");
-            System.out.println("-----------------------------------------");
+//            System.out.println("-----------------------------------------");
+//            System.out.println(this.id + " end");
+//            System.out.println("-----------------------------------------");
         }
     }
 
@@ -67,5 +65,9 @@ public class B3 {
             executorService.execute(runnable);
         }
         executorService.shutdown();
+        System.out.println("Run");
+        for (Map.Entry<String, Integer> result : globalFreq.entrySet()) {
+            System.out.println(result.getKey() + " " + result.getValue());
+        }
     }
 }
