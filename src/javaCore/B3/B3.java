@@ -1,11 +1,10 @@
-package javacore.B3;
+package javaCore.B3;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -25,7 +24,7 @@ public class B3 {
             System.out.println("-----------------------------------------");
 //            System.out.println(this.id + " run");
 //            System.out.println("-----------------------------------------");
-            File input = new File("src/javacore/B3/input/" + this.id + ".txt");
+            File input = new File("src/javaCore/B3/input/" + this.id + ".txt");
             ArrayList<String> wordList = new ArrayList<String>();
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(input));

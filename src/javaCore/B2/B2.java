@@ -1,16 +1,16 @@
-package javacore.B2;
+package javaCore.B2;
 
 import java.io.*;
 import java.util.*;
 
 public class B2 {
     public static void main(String[] args) throws FileNotFoundException {
-        File input = new File("src/javacore/B2/input.txt");
-        File output = new File("src/javacore/B2/output.txt");
+        File input = new File("src/javaCore/B2/input.txt");
+        File output = new File("src/javaCore/B2/output.txt");
         ArrayList<String> wordList = new ArrayList<String>();
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(input));
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/javacore/B2/output.txt"));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/javaCore/B2/output.txt"));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 wordList.addAll(Arrays.asList(line.split("\\W+")));

@@ -1,4 +1,4 @@
-package javacore.B4;
+package javaCore.B4;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicInteger;
 
 class Dot {
     private int x;
@@ -48,7 +47,7 @@ class Dot {
 public class B4 {
     public static void main(String[] args) {
         try {
-            FileWriter fileWriter = new FileWriter("src/javacore/B4/output.txt");
+            FileWriter fileWriter = new FileWriter("src/javaCore/B4/output.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             Dot A = new Dot(800, 800);
             Dot B = new Dot(4000, 800);
