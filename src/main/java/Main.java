@@ -10,7 +10,12 @@ public class Main {
     public static void main(String[] args) throws ClassNotFoundException {
         DatabaseController databaseController = new DatabaseController();
         try {
+            databaseController.getMostCrowdedCityOfEachCountry();
+            databaseController.getMostCrowdedCityOfEachContinent();
+            databaseController.getMostCrowdedCapital();
+            databaseController.getMostCrowdedCityOfEachContinent();
             databaseController.orderCountriesByNumberOfCities();
+            databaseController.orderCountriesByPopulationDensity();
         } catch (SQLException throwable) {
             throwable.printStackTrace();
         }
