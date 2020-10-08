@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class B3 {
     public static HashMap<String, Integer> globalFreq = new HashMap<String, Integer>();
@@ -21,13 +23,12 @@ public class B3 {
 
         @Override
         public void run() {
-            System.out.println("-----------------------------------------");
-//            System.out.println(this.id + " run");
-//            System.out.println("-----------------------------------------");
             File input = new File("src/javaCore/B3/input/" + this.id + ".txt");
             ArrayList<String> wordList = new ArrayList<String>();
+//            HashMap<String, Integer> freqMap = new HashMap<String, Integer>();
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(input));
+                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/javaCore/B3/output.txt"));
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     wordList.addAll(Arrays.asList(line.split("\\W+")));
@@ -35,38 +36,32 @@ public class B3 {
                 for (int i = 0; i < wordList.size(); ++i) {
                     wordList.set(i, wordList.get(i).toLowerCase());
                 }
-                HashMap<String, Integer> freqMap = new HashMap<String, Integer>();
                 for (String key : wordList) {
-                    int freq = freqMap.getOrDefault(key, 0);
+                    int freq = globalFreq.getOrDefault(key, 0);
+                    globalFreq.put(key, ++freq);
                 }
-                freqMap.forEach((key, value) -> {
-                    globalFreq.put(key, globalFreq.get(key) + value);
-                });
                 bufferedReader.close();
-//                for (Map.Entry<String, Integer> result : freqMap.entrySet()) {
-//                    System.out.println(result.getKey() + " " + result.getValue());
-//                }
-
+                for (Map.Entry<String, Integer> result : globalFreq.entrySet()) {
+                    bufferedWriter.write(result.getKey() + " " + result.getValue() + "\n");
+                    System.out.println(result.getKey() + " " + result.getValue());
+                }
+                bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-//            System.out.println("-----------------------------------------");
-//            System.out.println(this.id + " end");
-//            System.out.println("-----------------------------------------");
         }
     }
 
-    public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(6);
+    public static synchronized void blabla(){
+        ExecutorService es = Executors.newFixedThreadPool(6);
         for (int i = 0; i < 21; ++i) {
-            CountWord runnable = new CountWord(i);
-            executorService.execute(runnable);
+            CountWord task = new CountWord(i);
+            es.submit(task);
         }
-        executorService.shutdown();
-        System.out.println("Run");
-        for (Map.Entry<String, Integer> result : globalFreq.entrySet()) {
-            System.out.println(result.getKey() + " " + result.getValue());
-        }
+        es.shutdown();
+    }
+    public static void main(String[] args) {
+        blabla();
+        System.out.println("end");
     }
 }
