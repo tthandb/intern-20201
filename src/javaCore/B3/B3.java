@@ -6,7 +6,7 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 import java.util.zip.CheckedOutputStream;
 
-public class fake {
+public class B3 {
     public static HashMap<String, Integer> globalFreq = new HashMap<String, Integer>();
 
     public static class CountWord implements Runnable {
