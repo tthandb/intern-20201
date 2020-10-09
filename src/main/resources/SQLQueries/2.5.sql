@@ -1,4 +1,4 @@
-   SELECT
+   SELECT 
     Country.name AS country_name,
     COUNT(*) AS number_of_cities
 FROM

@@ -1,7 +1,7 @@
-SELECT
+SELECT 
     city_id,  city_name, country_id, country_name, population, cte1.continent as continent
 FROM
-    (SELECT
+    (SELECT 
         max(City.population) AS maxpop, continent
     FROM
         City
@@ -10,7 +10,7 @@ FROM
         AND capital = City.id
     GROUP BY continent) AS cte1
         JOIN
-    (SELECT
+    (SELECT 
         city_id,
     City.name as city_name,
     country_id,

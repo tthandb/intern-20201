@@ -1,4 +1,3 @@
--- create temporary table if not exists continent 
 select * from (SELECT 
         city_id,
             City.name AS city_name,
