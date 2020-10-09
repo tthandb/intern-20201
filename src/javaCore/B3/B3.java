@@ -3,8 +3,6 @@ package javaCore.B3;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.Collectors;
-import java.util.zip.CheckedOutputStream;
 
 public class B3 {
     public static HashMap<String, Integer> globalFreq = new HashMap<String, Integer>();
